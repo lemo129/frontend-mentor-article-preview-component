@@ -18,6 +18,7 @@
 ![Dynamic Content](https://img.shields.io/badge/Dynamic%20Content-Available-673ab7?style=for-the-badge)
 [![Google Lighthouse](https://img.shields.io/badge/Lighthouse-Audit-00B0FF?style=for-the-badge&logo=lighthouse&logoColor=white)](./assets/downloads/lighthouse-performance-report.pdf)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d172ae54-21c3-45d9-9f05-6ff308a60624/deploy-status)](https://article-preview-component-fcc-jiro.netlify.app/)
 ![Status](https://img.shields.io/badge/status-complete-brightgreen)
 ![Learning Path](https://img.shields.io/badge/learning%20path-month%205-blue)
 ![Views](https://visitor-badge.laobi.icu/badge?page_id=CodingWithJiro.frontend-mentor-article-preview-component&left_text=repo%20views)
@@ -93,7 +94,7 @@ The main focus was creating an accessible and mobile-first layout with theme tog
 
 ## 🌐 Live Demo
 
-Or you can check out the 👉 [live website here](LINK)
+Or you can check out the 👉 [live website here](https://article-preview-component-fcc-jiro.netlify.app/)
 
 ---
 
@@ -110,10 +111,3 @@ Created by **Elmar Chavez**
 🗓️ Month/Year: **August 2025**
 
 📚 Journey: **5<sup>th</sup>** month of learning _frontend web development_.
-
-<!--
-
-FRONTEND MENTOR TAGS:
-html css javascript vscode git github netlify 5th-month frontend-mentor project perfectpixel lighthouse theme-toggle
-
--->
