@@ -1,0 +1,556 @@
+/** || RESET */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+/** || FONTS */
+@font-face {
+  font-display: swap;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/manrope-v19-latin-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/manrope-v19-latin-700.woff2") format("woff2");
+}
+
+/** || VARIABLES */
+/* CHANGE THE DATA BELOW AS NEEDED */
+:root {
+  /* FONTS */
+  --FF: "Manrope", sans-serif;
+  --FS: 1rem;
+
+  /* COLORS */
+  --BGCOLOR: hsl(210, 46%, 95%);
+  --BGCOLOR-CARD: #fff;
+  --BGCOLOR-CARD-SHARE-BUTTON: hsl(210, 46%, 95%);
+  --BGCOLOR-CARD-SHARE-BUTTON-ACTIVE: #6e8098;
+  --BGCOLOR-CARD-NAV: hsl(217, 19%, 35%);
+  --FONT-COLOR-CARD-TITLE: hsl(217, 19%, 35%);
+  --FONT-COLOR-CARD-DESCRIPTION: hsl(214, 17%, 51%);
+  --FONT-COLOR-CARD-AUTHOR: hsl(217, 19%, 35%);
+  --FONT-COLOR-CARD-DATE: hsl(212, 23%, 69%);
+  --FONT-COLOR-CARD-SHARE: hsl(212, 23%, 69%);
+  --COLOR-CARD-SHARE-BUTTON: #6e8098;
+  --COLOR-CARD-SHARE-BUTTON-ACTIVE: #fff;
+  --COLOR-CARD-ICON: #fff;
+  --COLOR-CARD-ICON-HOVER: #6bd1ff;
+  --BORDER-COLOR-CARD-NAV-AFTER: hsl(217, 19%, 35%);
+  --SHADOW-COLOR-CARD: 211deg 15% 59%;
+  --SHADOW-COLOR-NAV: 0deg 0% 63%;
+  --SHADOW-COLOR-NAV-AFTER: rgba(0, 0, 0, 0.3);
+
+  /* THEME TOGGLE COLORS */
+  --FONT-COLOR-THEME-ICON-LIGHT: hsl(210, 46%, 20%);
+  --BGCOLOR-THEME-BUTTON: hsl(0, 0%, 98%);
+  --BGCOLOR-THEME-BUTTON-AFTER: hsl(210, 46%, 20%);
+  --BORDER-COLOR-THEME-BUTTON: hsl(210, 23%, 85%);
+  --SHADOW-COLOR-THEME: rgba(0, 0, 0, 0.15);
+
+  /* BORDERS */
+  --BORDER-THEME-BUTTON: 1px solid var(--BORDER-COLOR-THEME-BUTTON);
+  --BORDER-CARD-NAV-AFTER: 15px solid var(--BORDER-COLOR-CARD-NAV-AFTER);
+  --BORDER-CARD-NAV-AFTER-TRANSPARENT: 15px solid transparent;
+
+  /* SHADOWS */
+  --BOX-SHADOW-THEME: 0 0 3px var(--SHADOW-COLOR-THEME);
+  --BOX-SHADOW-CARD: 0.3px 0.5px 0.7px hsl(var(--SHADOW-COLOR-CARD) / 0.36),
+    0.9px 1.7px 2.2px -0.8px hsl(var(--SHADOW-COLOR-CARD) / 0.36),
+    2.3px 4.1px 5.3px -1.7px hsl(var(--SHADOW-COLOR-CARD) / 0.36),
+    5.7px 10.1px 13px -2.5px hsl(var(--SHADOW-COLOR-CARD) / 0.36);
+  --BOX-SHADOW-NAV: 0.3px 0.5px 0.7px hsl(var(--SHADOW-COLOR-NAV) / 0.36),
+    0.9px 1.7px 2.2px -0.8px hsl(var(--SHADOW-COLOR-NAV) / 0.36),
+    2.2px 4.3px 5.4px -1.7px hsl(var(--SHADOW-COLOR-NAV) / 0.36),
+    5.4px 10.5px 13.3px -2.5px hsl(var(--SHADOW-COLOR-NAV) / 0.36);
+  --DROP-SHADOW-NAV-AFTER: drop-shadow(0 5px 3px var(--SHADOW-COLOR-NAV-AFTER));
+}
+
+/** || UTILITY CLASSES */
+.dark {
+  /* COLORS */
+  --BGCOLOR: hsl(217, 19%, 15%);
+  --BGCOLOR-CARD: hsl(217, 19%, 22%);
+  --BGCOLOR-CARD-SHARE-BUTTON: hsl(217, 19%, 25%);
+  --BGCOLOR-CARD-SHARE-BUTTON-ACTIVE: hsl(214, 17%, 45%);
+  --BGCOLOR-CARD-NAV: hsl(217, 19%, 20%);
+  --FONT-COLOR-CARD-TITLE: hsl(210, 46%, 95%);
+  --FONT-COLOR-CARD-DESCRIPTION: hsl(212, 23%, 75%);
+  --FONT-COLOR-CARD-AUTHOR: hsl(210, 46%, 90%);
+  --FONT-COLOR-CARD-DATE: hsl(212, 23%, 65%);
+  --FONT-COLOR-CARD-SHARE: hsl(212, 23%, 65%);
+  --COLOR-CARD-SHARE-BUTTON: hsl(212, 23%, 80%);
+  --COLOR-CARD-SHARE-BUTTON-ACTIVE: hsl(210, 46%, 15%);
+  --COLOR-CARD-ICON: hsl(210, 46%, 95%);
+  --COLOR-CARD-ICON-HOVER: hsl(194, 100%, 65%);
+  --BORDER-COLOR-CARD-NAV-AFTER: hsl(217, 19%, 20%);
+  --SHADOW-COLOR-CARD: 217deg 19% 5%;
+  --SHADOW-COLOR-NAV: 217deg 19% 10%;
+  --SHADOW-COLOR-NAV-AFTER: rgba(0, 0, 0, 0.3);
+
+  /* THEME TOGGLE COLORS */
+  --FONT-COLOR-THEME-ICON-LIGHT: hsl(210, 46%, 95%);
+  --BGCOLOR-THEME-BUTTON: hsl(217, 19%, 25%);
+  --BGCOLOR-THEME-BUTTON-AFTER: hsl(210, 46%, 95%);
+  --BORDER-COLOR-THEME-BUTTON: hsl(217, 19%, 35%);
+  --SHADOW-COLOR-THEME: rgba(0, 0, 0, 0.6);
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+
+.hidden {
+  opacity: 0;
+  display: none;
+}
+
+/** || GENERAL STYLES */
+html {
+  font-size: var(--FS);
+  font-family: var(--FF);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--BGCOLOR);
+}
+
+:focus-visible {
+  outline-offset: 6px;
+}
+
+/** || HEADER */
+.theme {
+  box-shadow: var(--BOX-SHADOW-THEME);
+  background-color: transparent;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 10;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.theme__button {
+  border: var(--BORDER-THEME-BUTTON);
+  background-color: var(--BGCOLOR-THEME-BUTTON);
+  border-radius: 100px;
+  width: 2.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.theme__button::after {
+  content: "";
+  background-color: var(--BGCOLOR-THEME-BUTTON-AFTER);
+  position: absolute;
+  left: 0;
+  top: 0.225rem;
+  bottom: 0.225rem;
+  width: 1rem;
+  border-radius: 100px;
+  transform: translateX(0.2rem);
+}
+
+.theme__button.active::after {
+  transform: translateX(1.1rem);
+}
+
+.theme__icon {
+  opacity: 1;
+  width: 1.125rem;
+}
+
+.theme__icon--light {
+  color: var(--FONT-COLOR-THEME-ICON-LIGHT);
+}
+
+.theme__icon--dark {
+  color: var(--FONT-COLOR-THEME-ICON-DARK);
+}
+
+/** || MAIN */
+.main {
+  min-height: 100vh;
+}
+
+.main__container {
+  padding: 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border-radius: 12px;
+  background-color: var(--BGCOLOR-CARD);
+  max-width: 25rem;
+  box-shadow: var(--BOX-SHADOW-CARD);
+}
+
+.card__hero {
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  height: 12.5rem;
+  width: 100%;
+}
+
+.card__hero-image {
+  object-fit: cover;
+  object-position: 50% 25%;
+  width: 100%;
+  height: 100%;
+}
+
+.card__wrapper {
+  padding-block-start: 2.2rem;
+  padding-inline: clamp(1rem, -4.8182rem + 29.0909vw, 2rem);
+  padding-block-end: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.95rem;
+  position: relative;
+}
+
+.card__title {
+  color: var(--FONT-COLOR-CARD-TITLE);
+  font-size: 1.025rem;
+  font-weight: 700;
+  line-height: 1.475;
+  margin-block-end: 0.8em;
+}
+
+.card__description {
+  color: var(--FONT-COLOR-CARD-DESCRIPTION);
+  font-size: 0.83rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.card__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+}
+
+.card__profile-picture {
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+.card__profile-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card__author {
+  color: var(--FONT-COLOR-CARD-AUTHOR);
+  font-weight: 700;
+  font-size: 0.825rem;
+}
+
+.card__date {
+  color: var(--FONT-COLOR-CARD-DATE);
+  font-weight: 500;
+  font-size: 0.825rem;
+}
+
+.card__share-button {
+  background-color: var(--BGCOLOR-CARD-SHARE-BUTTON);
+  color: var(--COLOR-CARD-SHARE-BUTTON);
+  border-radius: 100px;
+  padding: 0.2em 0.4em;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.card__share-button:hover,
+.card__share-button:focus-visible {
+  transform: scale(1.2);
+  background-color: var(--BGCOLOR-CARD-SHARE-BUTTON-ACTIVE);
+  color: var(--COLOR-CARD-SHARE-BUTTON-ACTIVE);
+}
+
+.card__share-button.active {
+  background-color: var(--BGCOLOR-CARD-SHARE-BUTTON-ACTIVE);
+  color: var(--COLOR-CARD-SHARE-BUTTON-ACTIVE);
+}
+
+.card__nav-wrapper {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0 0 12px 12px;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.card__nav {
+  background-color: var(--BGCOLOR-CARD-NAV);
+  padding: 1.475rem 2rem;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.1em;
+}
+
+.card__share {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: var(--FONT-COLOR-CARD-SHARE);
+  user-select: none;
+}
+
+.card__socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+}
+
+.card__link:hover .card__icon,
+.card__link:focus-visible .card__icon {
+  transform: scale(1.1);
+  color: var(--COLOR-CARD-ICON-HOVER);
+}
+
+.card__icon {
+  color: var(--COLOR-CARD-ICON);
+}
+
+/** || MEDIA QUERY (DEVICE WIDTH) */
+@media screen and (min-width: 48rem) {
+  /** || MAIN */
+  .card {
+    max-width: 45.75rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 17.5rem;
+  }
+
+  .card__hero {
+    border-radius: 12px 0 0 12px;
+    max-height: none;
+    width: 100%;
+    height: 100%;
+    flex: 39%;
+  }
+
+  .card__hero-image {
+    object-position: left;
+    max-width: none;
+  }
+
+  .card__wrapper {
+    flex: 61%;
+    padding-block-start: 2rem;
+    padding-inline: 2.5rem;
+    justify-content: flex-start;
+    gap: 1.2rem;
+  }
+
+  .card__title {
+    font-size: clamp(1.025rem, 0.7279rem + 0.619vw, 1.285rem);
+    line-height: 1.4;
+    margin-block-end: 0.5em;
+  }
+
+  .card__cta {
+    position: relative;
+  }
+
+  .card__nav-wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 100%;
+    right: auto;
+    left: 45%;
+    width: clamp(9.5rem, 2.6429rem + 14.2857vw, 15.5rem);
+    border-radius: 10px;
+  }
+
+  .card__nav {
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.5rem, -0.1857rem + 1.4286vw, 1.1rem);
+    padding: 0.95rem 2rem;
+    box-shadow: var(--BOX-SHADOW-NAV);
+  }
+
+  .card__nav::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: -1.65rem;
+    border-top: var(--BORDER-CARD-NAV-AFTER);
+    border-right: var(--BORDER-CARD-NAV-AFTER-TRANSPARENT);
+    border-left: var(--BORDER-CARD-NAV-AFTER-TRANSPARENT);
+    border-bottom: var(--BORDER-CARD-NAV-AFTER-TRANSPARENT);
+    filter: var(--DROP-SHADOW-NAV-AFTER);
+  }
+
+  .card__share {
+    letter-spacing: clamp(0.0625rem, -0.2232rem + 0.5952vw, 0.3125rem);
+  }
+
+  .card__socials {
+    gap: clamp(0.5rem, -0.0714rem + 1.1905vw, 1rem);
+    position: relative;
+    top: 2px;
+  }
+}
+
+/** || MEDIA QUERY (REDUCED MOTION) */
+/* CHANGE THE DATA BELOW AS NEEDED */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .card {
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .card__title,
+  .card__description,
+  .card__author,
+  .card__date,
+  .card__share {
+    transition: color 0.3s ease-in-out;
+  }
+
+  .card__share-button {
+    transition: transform 0.15s ease-in-out, background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+  }
+
+  .card__icon {
+    transition: transform 0.15s ease-in-out, color 0.15s ease-in-out;
+  }
+
+  .card__nav-wrapper {
+    transition: max-height 0.1s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .card__nav {
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .card__nav::after {
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  .theme {
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .theme__button {
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  }
+
+  .theme__button::after {
+    transition: transform 0.15s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  .theme__icon {
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation: none !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0.001ms !important;
+    transition: none !important;
+    caret-color: auto !important;
+  }
+}
